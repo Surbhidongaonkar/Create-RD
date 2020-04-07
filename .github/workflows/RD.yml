@@ -1,0 +1,16 @@
+name: Create Repository Dispatch
+on:
+  push:
+    paths:
+      - './managed/src/main/resources/**'
+jobs:
+  createRepositoryDispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: surbhidongaonakr/Use-RD
+          event-type: update-on-release
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "release": ${{managed/src/main/resources/version.txt}}}'
