@@ -19,4 +19,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: Surbhidongaonkar/Use-RD
           event-type: update-on-release
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "release": "${{VERSION_STRING}}" }'
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "release": "${{steps.Set version string.env.VERSION_STRING}}" }'
