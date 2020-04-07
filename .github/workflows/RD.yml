@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - 'managed/src/main/resources/**'
-      - '.github/workflow/**'
+      - '.github/workflows/**'
   release:
     types:
       published
