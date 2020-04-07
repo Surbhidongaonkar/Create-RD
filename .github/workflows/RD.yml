@@ -1,8 +1,8 @@
 name: Create Repository Dispatch
 on:
-  push:
-    paths:
-      - 'managed/src/main/resources/**'
+  #push:
+    #paths:
+     # - 'managed/src/main/resources/**'
   release:
     types:
       published
