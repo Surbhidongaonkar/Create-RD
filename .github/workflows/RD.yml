@@ -11,7 +11,7 @@ jobs:
   createRepositoryDispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: "Set version string"
+      - name: "Set-version-string"
         run: echo ::set-env name=VERSION_STRING::$(cat managed/src/main/resources/version.txt)
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1.0.0
@@ -19,4 +19,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: Surbhidongaonkar/Use-RD
           event-type: update-on-release
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "release": "${{steps.Set version string.env.VERSION_STRING}}" }'
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "release": "${{steps.Set-version-string.envs.VERSION_STRING}}" }'
