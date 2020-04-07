@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - 'managed/src/main/resources/**'
+  release:
+    types:
+      published
 jobs:
   createRepositoryDispatch:
     runs-on: ubuntu-latest
