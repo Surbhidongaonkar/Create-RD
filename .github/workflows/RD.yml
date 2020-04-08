@@ -1,9 +1,9 @@
 name: Create Repository Dispatch
 on:
-  push:
-    paths:
-      - 'managed/src/main/resources/**'
-      - '.github/workflows/**'
+ # push:
+    #paths:
+   #   - 'managed/src/main/resources/**'
+    #  - '.github/workflows/**'
   release:
     types:
       published
@@ -20,4 +20,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: Surbhidongaonkar/Use-RD
           event-type: update-on-release
-          client-payload: '{"github": ${{ toJson(github) }}, "ref": "${{ github.ref }}"}'
+          client-payload: '{"github": ${{ toJson(github) }}, "release": "${{ github.event.release }}"}'
