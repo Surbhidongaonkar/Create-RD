@@ -6,8 +6,7 @@ on:
     #  - '.github/workflows/**'
   release:
     types:
-      published
-      !prereleased
+      - published
 jobs:
   createRepositoryDispatch:
     runs-on: ubuntu-latest
