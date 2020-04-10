@@ -6,16 +6,24 @@ on:
     #  - '.github/workflows/**'
   release:
     types:
-      - published
+      published
 jobs:
   createRepositoryDispatch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+     # - uses: actions/checkout@v2
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1.0.0
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: Surbhidongaonkar/Use-RD
+          event-type: update-on-release
+          client-payload: '{  "prerelease": ${{ github.event.release.prerelease }}, "release": "${{ github.event.release.tag_name }}"}'
+      #- uses: actions/checkout@v2
+      - name: Repository Dispatch for demo-webhook repo
+        uses: peter-evans/repository-dispatch@v1.0.0
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: Surbhidongaonkar/demo-webhook
           event-type: update-on-release
           client-payload: '{  "prerelease": ${{ github.event.release.prerelease }}, "release": "${{ github.event.release.tag_name }}"}'
