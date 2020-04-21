@@ -13,4 +13,4 @@ jobs:
     steps:
      # - uses: actions/checkout@v2
        - run: |
-          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.REPO_ACCESS_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json"  -H "Content-Type: application/json" https://api.github.com/repos/Surbhidongaonkar/use-RD/releases --data '{"event_type": "update-on-release", "prerelease": "${{ github.event.release.prerelease }}", "tag_name": "github.event.release.tag_name"}'
+          curl -XGET -u "${{ secrets.PAT_USERNAME}}:${{secrets.REPO_ACCESS_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json"  -H "Content-Type: application/json" https://api.github.com/repos/Surbhidongaonkar/use-RD/releases 
